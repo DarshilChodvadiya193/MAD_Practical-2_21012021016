@@ -15,18 +15,13 @@ class MainActivity : AppCompatActivity() {
         showMessage("oncreatemethod is call")
     }
 
-    fun showMessage(Message:String){
-        Log.i(TAG, Message)
+    fun showMessage(Message : String){
+        Log.i(TAG,Message)
         Toast.makeText(this, Message, Toast.LENGTH_SHORT).show()
-        val v:ConstraintLayout?=findViewById(R.id.myCoordinatorLayout)
-        if(v!=null){
-            Snackbar.make(
-            findViewById(R.id.myCoordinatorLayout),
-            Message,
-            Snackbar.LENGTH_SHORT
-        ).show()
+        val constraint : ConstraintLayout? = findViewById(R.id.MainConstraint)
+        if (constraint != null){
+            Snackbar.make(constraint,Message,Snackbar.LENGTH_SHORT).show()
         }
-
     }
 
     override fun onStart() {
@@ -46,11 +41,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        showMessage("onstop method is call")
+        showMessage("onStop method is call")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        showMessage("ondestroy method is call")
+        showMessage("onDestroy method is call")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        showMessage("onRestart method is call")
     }
 }
